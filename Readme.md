@@ -17,6 +17,9 @@ rateLimitConfig:
 
 ###### Have this line in your Config Go file (for above config)
 ```
+# Import
+import rateLimitConfig "github.com/skshukla/sampleRateLimit/config"
+..
 RateLimitConfig rateLimitConfig.RateLimitConfig `yaml:"rateLimitConfig"`
 ```
 

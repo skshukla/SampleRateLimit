@@ -7,9 +7,9 @@ rateLimitConfig:
     host: 0.0.0.0
     port: 6379
   rateLimit:
-    - key: /<relative url-01> # Relative URL which you want to limit
-      rate: 100 # number of request in one unit
-      unit: minute # valid values are minute/second for now
+    - key: /relative-url-01 #Relative URL which you want to limit
+      rate: 100 #Number of request in one unit
+      unit: minute #Valid values are minute/second for now
     - key: /employees/{id}
       rate: 7
       unit: minute

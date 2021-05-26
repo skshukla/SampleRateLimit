@@ -10,9 +10,9 @@ rateLimitConfig:
     - key: /relative-url-01 #Relative URL which you want to limit
       rate: 100 #Number of request in one unit
       unit: minute #Valid values are minute/second for now
-    - key: /employees/{id}
-      rate: 7
-      unit: minute
+    - key: /relative-url-02
+      rate: 10
+      unit: second
 ```
 
 ###### Have this line in your Config Go file (for above config)

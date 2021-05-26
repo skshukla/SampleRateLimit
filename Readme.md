@@ -23,6 +23,9 @@ RateLimitConfig rateLimitConfig.RateLimitConfig `yaml:"rateLimitConfig"`
 
 ###### Use Below code to invoke the validation and return response if error, otherwise continue processing as usual
 ```
+# Import
+sampleRateLimit "github.com/skshukla/sampleRateLimit"
+....
 err := sampleRateLimit.ValidateRateLimit(&container.AppConfig.RateLimitConfig , r)
 if err != nil {
     w.WriteHeader(http.StatusInternalServerError)

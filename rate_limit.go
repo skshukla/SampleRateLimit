@@ -6,13 +6,25 @@ import (
 	"github.com/gomodule/redigo/redis"
 	"github.com/skshukla/sampleRateLimit/config"
 	appRedis "github.com/skshukla/sampleRateLimit/redis"
+	"log"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
 )
 
+func validateConfigurationsArePresent(appConfig *config.RateLimitConfig)  error{
+	if appConfig.Redis.Host == "" {
+		log.Fatal("Redis Host config not present")
+	}
+	if appConfig.RateLimit == nil {
+		log.Fatal("Rate Limit property not present")
+	}
+	return nil
+}
+
 func ValidateRateLimit(appConfig *config.RateLimitConfig, r *http.Request) error{
+	validateConfigurationsArePresent(appConfig)
 	var redisConn redis.Conn = appRedis.GetRedisConn()
 	defer redisConn.Close()
 	threshold, unit := getRateLimitThreshold(appConfig, r.URL.Path)

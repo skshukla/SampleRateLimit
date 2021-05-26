@@ -3,12 +3,12 @@ package SampleRateLimit
 import (
 	"errors"
 	"fmt"
+	"github.com/gomodule/redigo/redis"
 	"github.com/skshukla/sampleRateLimit/config"
+	appRedis "github.com/skshukla/sampleRateLimit/redis"
 	"net/http"
 	"strconv"
 	"strings"
-	"github.com/gomodule/redigo/redis"
-	appRedis "github.com/skshukla/sampleRateLimit/redis"
 	"time"
 )
 

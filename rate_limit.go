@@ -78,8 +78,5 @@ func getIpFromRequest(r *http.Request) string {
 		IPAddress = r.RemoteAddr
 	}
 
-	if strings.HasPrefix(IPAddress, "127.0.0.1")  {
-		IPAddress = "127.0.0.1"
-	}
-	return IPAddress
+	return strings.Split(IPAddress, ":")[0]
 }
